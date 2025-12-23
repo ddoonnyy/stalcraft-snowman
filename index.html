@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>STALCRAFT Snowman Solver</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="title">
+        <div class="h1"><img class="info-ico" src="img/stalcraft_favicon.ico" alt="">STALCRAFT Snowman Solver</div>
+        <div class="sub">ЛКМ: фон (закрыто → не-жёлтая → жёлтая) · ПКМ: пунктир (серый/жёлтый) для открытых</div>
+      </div>
+
+      <div class="controls">
+        <div class="ctrl">
+          <label>Всего жёлтых</label>
+          <input id="totalYellows" type="number" min="1" max="10" value="4" />
+        </div>
+        <div class="ctrl">
+            <label class="tip">
+            wProb ⓘ
+            <span class="tiptext">Вес вероятности: ↑ → чаще клик по клеткам с высоким шансом ЖЁЛТОЙ.</span>
+            </label>
+          <input id="wProb" type="number" step="0.05" min="0.2" max="3" value="1.3" />
+        </div>
+        <div class="ctrl">
+            <label class="tip">
+            wInfo ⓘ
+            <span class="tiptext">Вес информации: ↑ → чаще клик по ходам, которые сильнее “раскрывают” раскладку.</span>
+            </label>
+          <input id="wInfo" type="number" step="0.05" min="0" max="2" value="0.15" />
+        </div>
+
+        <button id="btnSuggest" class="btn primary">Подсказать ход</button>
+        <button id="btnReset" class="btn">Сброс</button>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="board-wrap">
+        <div id="board" class="board" aria-label="board"></div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-title">Результат</div>
+        <pre id="output" class="output">Нажми “Подсказать ход”.</pre>
+
+        <div class="panel-title">Легенда</div>
+        <div class="legend">
+          <div class="lg"><span class="swatch bg-closed"></span> закрыто</div>
+          <div class="lg"><span class="swatch bg-open"></span> открыто (не жёлтая)</div>
+          <div class="lg"><span class="swatch bg-yellow"></span> открыто (жёлтая)</div>
+          <div class="lg"><span class="swatch hint-gray"></span> пунктир НЕ жёлтый (рядом жёлтых нет)</div>
+          <div class="lg"><span class="swatch hint-yellow"></span> пунктир жёлтый (рядом есть жёлтая)</div>
+          <div class="lg"><span class="swatch hl"></span> рекомендованный клик</div>
+        </div>
+
+        <div class="note">
+          ⚠️ Калькулятор ищет самый оптимальный выход к правильной клетке, однако иногда может ошибаться
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>by <a href="https://t.me/ddoonnyyy" class="tip" style="color:red">ddoonnyy <span class="tiptext">Поддержите уебка 😊😊: SpecialDonny</span></a> & ChatGPT</div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
