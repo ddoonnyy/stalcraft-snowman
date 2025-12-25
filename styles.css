@@ -524,3 +524,4 @@ body{
 
 /* выключатель эффектов (снег + гирлянда) */
 html.fx-off .garland-hang{ display: none !important; }
+

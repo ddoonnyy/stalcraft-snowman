@@ -12,6 +12,8 @@
   let enabled = !prefersReduced && (localStorage.getItem("snowEnabled") ?? "1") !== "0";
   let rafId = 0;
 
+
+
 const root = document.documentElement;
 
 function applyFxState(){
