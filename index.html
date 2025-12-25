@@ -4,11 +4,61 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>STALCRAFT Snowman Solver</title>
+  <meta name="theme-color" content="#070b16" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="stalcraft_snowman_favicon_v2.ico" type="image/x-icon">
 </head>
 <body>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
   <div class="app">
+    <div class="garland-hang" aria-hidden="true">
+      <svg viewBox="0 0 1000 90" preserveAspectRatio="none">
+      <!-- провод -->
+        <path class="garland-wire"
+          d="M0,18
+            C120,62 230,62 340,18
+            C450,-20 550,-20 660,18
+            C770,62 880,62 1000,18" />
+
+        <!-- “ножки” вниз -->
+        <g class="garland-drops">
+          <path class="garland-drop" d="M70,26  L70,54" />
+          <path class="garland-drop" d="M150,34 L150,54" />
+          <path class="garland-drop" d="M230,42 L230,54" />
+          <path class="garland-drop" d="M310,34 L310,54" />
+          <path class="garland-drop" d="M390,26 L390,54" />
+
+          <path class="garland-drop" d="M470,26 L470,54" />
+          <path class="garland-drop" d="M550,34 L550,54" />
+          <path class="garland-drop" d="M630,42 L630,54" />
+          <path class="garland-drop" d="M710,34 L710,54" />
+          <path class="garland-drop" d="M790,26 L790,54" />
+
+          <path class="garland-drop" d="M870,34 L870,54" />
+          <path class="garland-drop" d="M950,26 L950,54" />
+        </g>
+
+      <!-- лампочки (odd/even мигают в противофазе) -->
+        <g class="garland-bulbs">
+          <circle class="garland-bulb odd c-red"    cx="70"  cy="66" r="10"/>
+          <circle class="garland-bulb even c-green" cx="150" cy="66" r="10"/>
+          <circle class="garland-bulb odd c-blue"   cx="230" cy="66" r="10"/>
+          <circle class="garland-bulb even c-gold"  cx="310" cy="66" r="10"/>
+          <circle class="garland-bulb odd c-purple" cx="390" cy="66" r="10"/>
+
+          <circle class="garland-bulb even c-red"   cx="470" cy="66" r="10"/>
+          <circle class="garland-bulb odd c-green"  cx="550" cy="66" r="10"/>
+          <circle class="garland-bulb even c-blue"  cx="630" cy="66" r="10"/>
+          <circle class="garland-bulb odd c-gold"   cx="710" cy="66" r="10"/>
+          <circle class="garland-bulb even c-purple"cx="790" cy="66" r="10"/>
+
+          <circle class="garland-bulb odd c-red"    cx="870" cy="66" r="10"/>
+          <circle class="garland-bulb even c-green" cx="950" cy="66" r="10"/>
+        </g>
+      </svg>
+    </div>
+
     <header class="header">
       <div class="title">
         <div class="h1"><img class="info-ico" src="img/stalcraft_favicon.ico" alt="">STALCRAFT Snowman Solver</div>
@@ -37,6 +87,7 @@
 
         <button id="btnSuggest" class="btn primary">Подсказать ход</button>
         <button id="btnReset" class="btn">Сброс</button>
+        <button id="btnSnow" class="btn">XMAS: Вкл</button>
       </div>
     </header>
 
@@ -69,7 +120,9 @@
       <div>by <a href="https://t.me/ddoonnyyy" class="tip" style="color:red">ddoonnyy <span class="tiptext">Поддержите уебка 😊😊: SpecialDonny</span></a> & ChatGPT</div>
     </footer>
   </div>
+  
 
+  <script src="bg.js" defer></script>
   <script src="app.js"></script>
 </body>
 </html>
